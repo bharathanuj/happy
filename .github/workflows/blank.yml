@@ -28,16 +28,14 @@ jobs:
 
     - name: Print Environment Variables
       run: |
-        echo "GITHUB_REPOSITORY_OWNER: $GITHUB_REPOSITORY_OWNER"
-        echo "GITHUB_REPOSITORY_NAME: $GITHUB_REPOSITORY_NAME"
-        echo "GITHUB_PR_NUMBER: $GITHUB_PR_NUMBER"
+        echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+        echo "GITHUB_EVENT_NUMBER: $GITHUB_EVENT_NUMBER"
         echo "GITHUB_TOKEN: $GITHUB_TOKEN"
 
 
     - name: Run Python script
       run: python generate_comments_yaml.py
       env:
-        GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-        GITHUB_REPOSITORY_NAME: ${{ github.repository_name }}
-        GITHUB_PR_NUMBER: ${{ github.event.number }}
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+         GITHUB_REPOSITORY: ${{ github.repository }}
+         GITHUB_EVENT_NUMBER: ${{ github.event.number }}
+         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
