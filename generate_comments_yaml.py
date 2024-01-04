@@ -13,15 +13,13 @@ def get_pull_request_comments(repo_owner, repo_name, pr_number, access_token):
 
     if response.status_code == 200:
         return response.json()
-    else:
-        print(f"Failed to fetch comments. Status code: {response.status_code}")
-        return None
 
 def main():
-    repo_owner = os.environ.get('GITHUB_REPOSITORY_OWNER')
-    repo_name = os.environ.get('GITHUB_REPOSITORY_NAME')
-    pr_number = os.environ.get('GITHUB_PR_NUMBER')
-    access_token = os.environ.get('GITHUB_TOKEN')
+    github_repository = os.environ.get('GITHUB_REPOSITORY')
+    repo_owner, repo_name = github_repository.split('/')
+
+    github_pr_number = os.environ.get('GITHUB_EVENT_NUMBER')
+    github_token = os.environ.get('GITHUB_TOKEN')
 
     comments = get_pull_request_comments(repo_owner, repo_name, pr_number, access_token)
 
