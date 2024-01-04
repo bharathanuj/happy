@@ -21,7 +21,7 @@ def main():
     github_pr_number = os.environ.get('GITHUB_EVENT_NUMBER')
     github_token = os.environ.get('GITHUB_TOKEN')
 
-    comments = get_pull_request_comments(repo_owner, repo_name, pr_number, access_token)
+    comments = get_pull_request_comments(repo_owner, repo_name, github_pr_number, github_token)
 
     if comments:
         output_file = 'pr_comments.yaml'
