@@ -23,10 +23,9 @@ def main():
 
     comments = get_pull_request_comments(repo_owner, repo_name, github_pr_number, github_token)
 
-    if comments:
-        output_file = 'pr_comments.yaml'
-        with open(output_file, 'w') as f:
-            yaml.dump(comments, f)
+    output_file = 'pr_comments.yaml'
+    with open(output_file, 'w') as f:
+        yaml.dump(comments, f)
 
 if __name__ == "__main__":
     main()
