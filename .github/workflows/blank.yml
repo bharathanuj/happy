@@ -28,7 +28,7 @@ jobs:
 
     - name: Print Environment Variables
       run: |
-        echo "GITHUB_REPOSITORY:  ${{ github.repository }}
+        echo "GITHUB_REPOSITORY:  ${{ github.repository }}"
         echo "GITHUB_EVENT_NUMBER: ${{ github.event.pull_request.number }}"
         echo "GITHUB_TOKEN: $GITHUB_TOKEN"
 
