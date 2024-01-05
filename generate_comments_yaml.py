@@ -10,6 +10,7 @@ def get_pull_request_comments(repo_owner, repo_name, pr_number, access_token):
 
     url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/issues/{pr_number}/comments'
     response = requests.get(url, headers=headers)
+    print(response.json())
     return response.json()
 
 def main():
