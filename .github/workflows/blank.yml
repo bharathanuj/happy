@@ -33,10 +33,4 @@ jobs:
          GITHUB_EVENT_NUMBER: ${{ github.event.pull_request.number }}
          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
     
-    - name: Commit and Push Changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Generate GitHub Actions workflow"
-        git push origin HEAD:main
+
